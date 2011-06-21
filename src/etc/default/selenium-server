@@ -1,0 +1,36 @@
+# defaults for selenium-server
+
+# pulled in from the init script; makes things easier.
+NAME=selenium-server
+
+# location of java
+JAVA=/usr/bin/java
+
+#localtion of xvfb-run
+XVFB=/usr/bin/xvfb-run
+
+# arguments to pass to java
+#JAVA_ARGS=\"-Xmx256m\"
+
+PIDFILE=/var/run/selenium-server/selenium-server.pid
+
+# user id to be invoked as (otherwise will run as root; not wise!)
+SELENIUM_USER=selenium-server
+
+# location of the selenium-server jar file
+SELENIUM_JAR=/usr/share/selenium-server/selenium-server.jar
+
+# selenium-server home location
+SELENIUM_HOME=/var/lib/selenium
+
+# log location.  this may be a syslog facility.priority
+SELENIUM_LOG=/var/log/selenium-server/$NAME.log
+
+# port for HTTP connector (default 4444)
+HTTP_PORT=4444
+
+# arguments to pass to selenium-server.
+SELENIUM_ARGS=""
+
+# xvfb arguments
+XVFB_ARGS="-a -s\"-ac\""
