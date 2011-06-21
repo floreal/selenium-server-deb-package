@@ -99,14 +99,14 @@ do_start()
 # 
 get_running() 
 {
-    return `ps -U $SELENIUM_USER --no-headers -f | egrep -e 'Xvfb' | grep -c . `
+    return `ps -U $SELENIUM_USER --no-headers -f | egrep -e '(xvfb-run|Xvfb|java|daemon)' | grep -c . `
 }
 
 force_stop() 
 {
     get_running
     if [ $? -ne 0 ]; then 
-        killall -u $SELENIUM_USER java daemon || return 3
+        killall -u $SELENIUM_USER Xvfb xvfb-run java daemon || return 3
     fi
 }
 
