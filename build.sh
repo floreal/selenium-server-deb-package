@@ -17,7 +17,7 @@ case $1 in
 	*)
 		make_dirs
 		echo "Downloading selenium-server..."
-		wget http://selenium.googlecode.com/files/selenium-server-standalone-2.0b3.jar -O src/usr/share/selenium-server/selenium-server.jar
+		wget http://selenium.googlecode.com/files/selenium-server-standalone-2.0rc2.jar -O src/usr/share/selenium-server/selenium-server.jar
 		echo "Building debian package..."
 		dpkg-deb --build src > /dev/null
 		mv src.deb pkg/selenium-server.deb
