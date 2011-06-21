@@ -1,4 +1,4 @@
-# Builing
+# Building
 
 In order to build the debian package just run
   $ ./build.sh
