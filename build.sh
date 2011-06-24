@@ -40,7 +40,7 @@ build() {
 	echo "Processing ..."
 	rm -Rf $build_dir
 	cp -R $src_dir $build_dir
-	find $build -type f -exec sed -i s/2.0rc3/$version/g {} \;
+	find $build_dir -type f -exec sed -i s/%VERSION%/$version/g {} \;
 	cp $selected_file $build_dir/usr/share/selenium-server/selenium-server.jar
 }
 
