@@ -1,8 +1,8 @@
 Package: selenium-server
-Version: 2.0b3
+Version: 2.0rc3
 Section: devel
 Priority: extra
 Architecture: all
-Depends: xvfb, daemon, adduser, psmisc, java2-runtime
+Depends: xvfb, daemon, default-jre-headless
 Maintainer: Floréal Toumikian <ftoumikian@april.org>
 Description: Selenium remote control server

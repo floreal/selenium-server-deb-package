@@ -1,2 +1,4 @@
 pkg
-src/usr/share/selenium-server/selenium-server.jar
+build
+servers
+
