@@ -30,7 +30,7 @@ SELENIUM_LOG=/var/log/selenium-server/$NAME.log
 HTTP_PORT=4444
 
 # arguments to pass to selenium-server.
-SELENIUM_ARGS=""
+SELENIUM_ARGS="-port $HTTP_PORT"
 
 # xvfb arguments
 XVFB_ARGS="-a -s\"-ac\""
