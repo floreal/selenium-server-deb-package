@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 version=$2
 here=`dirname $0`
@@ -30,9 +30,9 @@ download() {
 	jar=selenium-server-standalone-$version.jar
 	selected_file=$dest_dl_dir/$jar
 	if [ ! -f $selected_file ] ; then
-		wget -nv http://selenium.googlecode.com/files/$jar -O $selected_file || exit 1
+		wget -nv http://selenium-release.storage.googleapis.com/${version%.*}/$jar -O $selected_file || exit 1
 	else
-		echo "  File already downloaded." 
+		echo "  File already downloaded."
 	fi
 }
 
