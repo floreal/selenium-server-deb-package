@@ -23,6 +23,7 @@ SCRIPTNAME=/etc/init.d/$NAME
 
 DAEMON=/usr/bin/daemon
 DAEMON_ARGS="--name=$NAME --inherit --env=SELENIUM_HOME=$SELENIUM_HOME --output=$SELENIUM_LOG --pidfile=$PIDFILE"
+PGREP_REGEXP="$SELENIUM_JAR|Xvfb|xvfb-run|chrome|chromedriver"
 
 SU=/bin/su
 # Exit if the package is not installed
@@ -99,14 +100,14 @@ do_start()
 # 
 get_running() 
 {
-    return `ps -U $SELENIUM_USER --no-headers -f | egrep -e '(xvfb-run|Xvfb|java|daemon)' | grep -c . `
+    return `pgrep -c -f "$PGREP_REGEXP"`
 }
 
 force_stop() 
 {
     get_running
     if [ $? -ne 0 ]; then 
-        killall -u $SELENIUM_USER Xvfb xvfb-run java daemon || return 3
+        pkill -U $SELENIUM_USER -f "$PGREP_REGEXP" || return 3
     fi
 }
 
@@ -129,6 +130,7 @@ do_stop()
     get_daemon_status 
     case "$?" in
         0) 
+            #THIS DOES NOTHING?!
             $DAEMON $DAEMON_ARGS --stop || return 2
         # wait for the process to really terminate
         for n in 1 2 3 4 5; do
